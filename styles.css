@@ -1,3 +1,27 @@
+/*
+  ALFHA Soluciones Digitales - styles.css
+  -----------------------------------------------------
+  Este archivo define la estética y el comportamiento visual del sitio.
+
+  Incluye:
+  - Reset y estilos base
+  - Fondo espacial (gradiente animado, estrellas y halos)
+  - Preloader con cohete (overlay + animaciones CSS)
+  - Navbar con efecto glassmorphism
+  - Hero section (layout + animación de la imagen)
+  - Cards y botones (glassmorphism + hover premium)
+  - Responsive (media queries)
+
+  IMPORTANTE:
+  - No se alteran valores visuales (colores/tamaños/animaciones) para
+    mantener la misma estética.
+  - Se agregó documentación para mejorar legibilidad/mantenimiento.
+*/
+
+/* =========================
+   RESET + BASE
+========================= */
+
 *{
   margin:0;
   padding:0;
@@ -15,20 +39,36 @@ body{
   overflow-x:hidden;
 }
 
-/* =========================
+/* =====================================================
    FONDO ESPACIAL
-========================= */
+   -----------------------------------------------------
+   Se basa en 3 ideas:
+
+   1) Gradiente animado (space-bg)
+      - `.space-bg` es fixed y cubre toda la pantalla.
+      - Usa `background-size: 300% 300%` y la animación `bgShift`
+        para crear un desplazamiento suave del gradiente.
+
+   2) Estrellas (stars / stars2)
+      - `.stars` y `.stars2` dibujan “puntos” usando `radial-gradient`.
+      - `background-size` controla el espaciado visual.
+      - `starsMove` mueve las estrellas verticalmente con `transform`.
+
+   3) Glows (glow1 / glow2)
+      - `.glow` aplica blur fuerte para lograr el halo.
+      - `.glow1` y `.glow2` posicionan y colorean cada halo.
+
+   Nota: todo esto es CSS puro para evitar parpadeos y mantener
+   rendimiento.
+===================================================== */
 
 .space-bg{
-
   position:fixed;
-
   inset:0;
-
   z-index:-2;
-
   overflow:hidden;
 
+  /* Gradiente de “espacio” (se desplaza en el tiempo) */
   background:
   linear-gradient(
     120deg,
@@ -44,7 +84,6 @@ body{
 }
 
 @keyframes bgShift{
-
   0%{
     background-position:0% 50%;
   }
@@ -56,18 +95,16 @@ body{
   100%{
     background-position:0% 50%;
   }
-
 }
 
 /* ESTRELLAS */
 
 .stars,
 .stars2{
-
   position:absolute;
-
   inset:0;
 
+  /* Puntos de estrellas con radial-gradient */
   background-image:
     radial-gradient(
       white 1px,
@@ -75,24 +112,20 @@ body{
     );
 
   background-size:50px 50px;
-
   opacity:0.2;
 
+  /* Movimiento vertical infinito */
   animation:
   starsMove 90s linear infinite;
 }
 
 .stars2{
-
   background-size:120px 120px;
-
   opacity:0.1;
-
   animation-duration:140s;
 }
 
 @keyframes starsMove{
-
   from{
     transform:translateY(0);
   }
@@ -100,92 +133,84 @@ body{
   to{
     transform:translateY(-1000px);
   }
-
 }
 
 /* GLOWS */
 
 .glow{
-
   position:absolute;
-
   border-radius:50%;
-
   filter:blur(120px);
-
   opacity:0.25;
 }
 
 .glow1{
-
   width:400px;
   height:400px;
-
   background:#22c55e;
-
   top:-100px;
   left:-100px;
 }
 
 .glow2{
-
   width:350px;
   height:350px;
-
   background:#60a5fa;
-
   bottom:-100px;
   right:-100px;
 }
 
-/* =========================
-   PRELOADER
-========================= */
+/* =====================================================
+   PRELOADER COHETE
+   -----------------------------------------------------
+   Estructura (en index.html):
+   - `.rocket-loader`: overlay fijo de pantalla.
+   - `.rocket`: emoji que se anima para “despegar”.
+
+   Cómo funciona:
+   - `.rocket-loader` tiene `animation-delay: 3s` y al final se oculta:
+     `loaderFade` establece `opacity: 0` y `visibility: hidden`.
+   - `.rocket` ejecuta `rocketLaunch` (transform translateY hacia arriba)
+     durante 3s.
+   - `.rocket::after` crea la estela/columna luminosa usando un gradiente
+     vertical y blur.
+===================================================== */
 
 .rocket-loader{
-
   position:fixed;
-
   inset:0;
-
   background:white;
-
   z-index:9999;
 
   display:flex;
-
   justify-content:center;
-
   align-items:flex-end;
-
   overflow:hidden;
 
+  /* Se desvanece al final */
   animation:
   loaderFade 1s ease forwards;
 
+  /* Espera antes de comenzar el fade */
   animation-delay:3s;
 }
 
 .rocket{
-
   font-size:5rem;
-
   margin-bottom:-100px;
 
+  /* “Despega” hacia arriba */
   animation:
   rocketLaunch 3s ease-in-out forwards;
 }
 
 .rocket::after{
-
   content:"";
-
   position:absolute;
-
   width:12px;
-
   height:180px;
 
+  /* Columna luminosa */
   background:
   linear-gradient(
     to top,
@@ -194,18 +219,14 @@ body{
   );
 
   left:50%;
-
   transform:translateX(-50%);
-
   top:90px;
 
   border-radius:50px;
-
   filter:blur(8px);
 }
 
 @keyframes rocketLaunch{
-
   0%{
     transform:translateY(0);
   }
@@ -213,51 +234,45 @@ body{
   100%{
     transform:translateY(-120vh);
   }
-
 }
 
 @keyframes loaderFade{
-
   to{
     opacity:0;
     visibility:hidden;
   }
-
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* =====================================================
+   NAVBAR (BOOTSTRAP + GLASSMORPHISM)
+   -----------------------------------------------------
+   - Bootstrap controla la responsividad y el colapso del menú.
+   - Este CSS aporta el look glassmorphism:
+     * fondo semitransparente (rgba)
+     * blur con `backdrop-filter`
+     * borde inferior sutil
+===================================================== */
 
 .navbar{
-
   background:rgba(255,255,255,0.65);
 
   -webkit-backdrop-filter:blur(12px);
   backdrop-filter:blur(12px);
 
   border-bottom:1px solid rgba(255,255,255,0.4);
-
   padding:16px 0;
 }
 
 .navbar-brand{
-
   color:#22c55e !important;
-
   font-size:1.7rem;
-
   font-weight:700;
 }
 
 .nav-link{
-
   color:#374151 !important;
-
   font-weight:500;
-
   margin-left:12px;
-
   transition:0.3s;
 }
 
@@ -265,9 +280,22 @@ body{
   color:#22c55e !important;
 }
 
-/* =========================
-   HERO
-========================= */
+/* =====================================================
+   HERO SECTION
+   -----------------------------------------------------
+   Layout:
+   - `.hero-row` asegura altura mínima (100vh).
+   - El grid de Bootstrap organiza columnas (col-lg-6).
+
+   Tipografía y spacing:
+   - `.hero-left h1`, `.hero-left p` definen tamaños y colores.
+
+   Animaciones:
+   - La imagen `.hero-img` flota con `heroFloat`.
+
+   Glassmorphism:
+   - `.mini-tag` y `.info-box` usan fondos semitransparentes + blur.
+===================================================== */
 
 .hero{
   position:relative;
@@ -278,15 +306,10 @@ body{
 }
 
 .hero-left h1{
-
   font-size:5rem;
-
   line-height:1.05;
-
   font-weight:700;
-
   color:#111827;
-
   margin:25px 0;
 }
 
@@ -295,137 +318,94 @@ body{
 }
 
 .hero-left p{
-
   font-size:1.15rem;
-
   line-height:1.9;
-
   color:#4b5563;
-
   max-width:580px;
-
   margin-bottom:35px;
 }
 
 /* MINI TAG */
 
 .mini-tag{
-
   display:inline-block;
-
   padding:10px 18px;
-
   border-radius:50px;
 
   background:rgba(255,255,255,0.55);
-
   -webkit-backdrop-filter:blur(10px);
   backdrop-filter:blur(10px);
 
   border:1px solid rgba(255,255,255,0.5);
-
   color:#166534;
-
   font-weight:600;
 }
 
 /* BOTONES */
 
 .hero-buttons{
-
   display:flex;
-
   gap:18px;
-
   flex-wrap:wrap;
-
   margin-bottom:50px;
 }
 
 .btn-contacto{
-
   display:inline-flex;
-
   align-items:center;
-
   justify-content:center;
 
   padding:15px 38px;
-
   border-radius:50px;
-
   background:#22c55e;
-
   color:white;
-
   text-decoration:none;
-
   font-weight:600;
-
   transition:0.4s;
 }
 
 .btn-contacto:hover{
-
   transform:translateY(-5px);
-
   background:#16a34a;
-
   box-shadow:
   0 10px 30px rgba(34,197,94,0.25);
 }
 
 .btn-secundario{
-
   display:inline-flex;
-
   align-items:center;
-
   justify-content:center;
 
   padding:15px 35px;
-
   border-radius:50px;
-
   text-decoration:none;
-
   font-weight:600;
 
   border:1px solid rgba(34,197,94,0.3);
-
   color:#166534;
-
   background:rgba(255,255,255,0.5);
 
   transition:0.4s;
 }
 
 .btn-secundario:hover{
-
   transform:translateY(-5px);
-
   background:white;
 }
 
 /* INFO HERO */
 
 .hero-info{
-
   display:flex;
-
   gap:20px;
-
   flex-wrap:wrap;
 }
 
 .info-box{
-
   padding:20px 25px;
-
   border-radius:20px;
 
   background:rgba(255,255,255,0.55);
-
   -webkit-backdrop-filter:blur(12px);
   backdrop-filter:blur(12px);
 
@@ -433,14 +413,11 @@ body{
 }
 
 .info-box h4{
-
   color:#22c55e;
-
   margin-bottom:5px;
 }
 
 .info-box span{
-
   color:#4b5563;
 }
 
@@ -450,10 +427,9 @@ body{
   position:relative;
 }
 
+/* Círculo de glow detrás de la imagen */
 .hero-image-wrapper::before{
-
   content:"";
-
   position:absolute;
 
   width:350px;
@@ -477,12 +453,13 @@ body{
 }
 
 .hero-img{
-
   max-width:520px;
 
+  /* Flotación suave */
   animation:
   heroFloat 6s ease-in-out infinite;
 
+  /* Sombra tipo drop-shadow */
   filter:
   drop-shadow(
     0 20px 40px rgba(34,197,94,0.2)
@@ -490,7 +467,6 @@ body{
 }
 
 @keyframes heroFloat{
-
   0%{
     transform:translateY(0);
   }
@@ -502,53 +478,50 @@ body{
   100%{
     transform:translateY(0);
   }
-
 }
 
-/* =========================
+/* =====================================================
    SECCIONES
-========================= */
+   -----------------------------------------------------
+   - `section` define el padding vertical uniforme.
+   - `h2` estiliza los títulos principales de cada bloque.
+===================================================== */
 
 section{
   padding:100px 20px;
 }
 
 h2{
-
   text-align:center;
-
   margin-bottom:50px;
-
   color:#166534;
-
   font-size:2.7rem;
-
   font-weight:700;
 }
 
 /* SOBRE */
 
 .sobre p{
-
   max-width:850px;
-
   margin:auto;
-
   text-align:center;
-
   line-height:1.9;
-
   color:#4b5563;
 }
 
-/* SERVICIOS */
+/* =====================================================
+   SERVICIOS (CARDS)
+   -----------------------------------------------------
+   `.card-servicio` es una card glassmorphism:
+   - Fondo semitransparente (rgba)
+   - blur con `backdrop-filter`
+   - borde translúcido
+   - hover: lift con translateY + box-shadow verde suave
+===================================================== */
 
 .card-servicio{
-
   height:100%;
-
   padding:45px 30px;
-
   border-radius:25px;
 
   background:rgba(255,255,255,0.6);
@@ -562,7 +535,6 @@ h2{
 }
 
 .card-servicio:hover{
-
   transform:translateY(-10px);
 
   box-shadow:
@@ -570,56 +542,53 @@ h2{
 }
 
 .card-servicio h3{
-
   color:#22c55e;
-
   margin-bottom:15px;
 }
 
 .card-servicio p{
-
   color:#4b5563;
-
   line-height:1.7;
 }
 
 /* CONTACTO */
 
 .info-contacto{
-
   text-align:center;
-
   padding:50px;
-
   border-radius:30px;
 
   background:rgba(255,255,255,0.55);
-
   -webkit-backdrop-filter:blur(12px);
   backdrop-filter:blur(12px);
 
   border:1px solid rgba(255,255,255,0.5);
 
   max-width:700px;
-
   margin:auto;
 }
 
 /* FOOTER */
 
 footer{
-
   padding:35px;
-
   text-align:center;
-
   color:#6b7280;
 }
 
-/* RESPONSIVE */
+/* =====================================================
+   RESPONSIVE
+   -----------------------------------------------------
+   Se agregan 3 breakpoints con media queries:
+   - max-width:992px
+     * Ajusta el hero para que el texto se centre y sube padding.
+   - max-width:768px
+     * Reduce tamaño del h1 y h2.
+   - max-width:480px
+     * Apila botones en columna y los hace de ancho completo.
+===================================================== */
 
 @media(max-width:992px){
-
   .hero{
     padding-top:150px;
   }
@@ -643,11 +612,9 @@ footer{
   .hero-info{
     justify-content:center;
   }
-
 }
 
 @media(max-width:768px){
-
   .hero-left h1{
     font-size:2.8rem;
   }
@@ -655,11 +622,9 @@ footer{
   h2{
     font-size:2rem;
   }
-
 }
 
 @media(max-width:480px){
-
   .hero-left h1{
     font-size:2.2rem;
   }
@@ -672,5 +637,5 @@ footer{
   .btn-secundario{
     width:100%;
   }
-
 }
+

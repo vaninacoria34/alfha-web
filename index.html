@@ -52,9 +52,16 @@
 
   </div>
 
-  <!-- =========================
-       PRELOADER COHETE
-  ========================== -->
+  <!-- =====================================================
+       PRELOADER COHETE (CARGA INICIAL)
+       -----------------------------------------------------
+       - `rocket-loader` es una capa fija que cubre la pantalla.
+       - Se anima con `loaderFade` para ocultarse al finalizar.
+       - `rocket` ejecuta `rocketLaunch` para “despegar” y salir
+         de la vista.
+       - El preloader está pensado para no interferir con el layout:
+         es fixed + z-index alto, y al terminar se vuelve hidden.
+  ===================================================== -->
 
   <div class="rocket-loader">
 
@@ -64,9 +71,16 @@
 
   </div>
 
-  <!-- =========================
-       NAVBAR
-  ========================== -->
+  <!-- =====================================================
+       NAVBAR (BOOTSTRAP 5)
+       -----------------------------------------------------
+       Bootstrap provee:
+       - `navbar` y clases de layout.
+       - responsive con `navbar-expand-lg`.
+       - menú colapsable en mobile con `collapse`, `navbar-toggler`
+         y atributos `data-bs-*`.
+       El fondo real glassmorphism lo aplica CSS en `.navbar`.
+  ===================================================== -->
 
   <nav class="navbar navbar-expand-lg fixed-top">
 
@@ -127,9 +141,18 @@
 
   </nav>
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- =====================================================
+       HERO SECTION (LANDING STARTUP)
+       -----------------------------------------------------
+       Estructura:
+       - Left: mini tag, título principal, descripción y CTA buttons.
+       - Right: imagen principal con animación flotante.
+       Responsive:
+       - Bootstrap grid (`row`, `col-lg-6`) apila/acomoda por breakpoint.
+       - CSS adicional ajusta tipografías y alineación en media queries.
+       Glassmorphism:
+       - Los “info-box” usan fondos semitransparentes y blur con CSS.
+  ===================================================== -->
 
   <section
     id="inicio"
@@ -167,7 +190,9 @@
 
           </p>
 
+          <!-- Botones CTA (estilos custom, no Bootstrap) -->
           <div class="hero-buttons">
+
 
             <a
               href="#contacto"
@@ -239,9 +264,12 @@
 
   </section>
 
-  <!-- =========================
-       SOBRE MI
-  ========================== -->
+  <!-- =====================================================
+       SOBRE MÍ
+       -----------------------------------------------------
+       Sección simple centrada. El responsive del texto y el padding
+       lo controla CSS (media queries + layout general de `section`).
+  ===================================================== -->
 
   <section
     id="sobre"
@@ -269,9 +297,15 @@
 
   </section>
 
-  <!-- =========================
-       SERVICIOS
-  ========================== -->
+  <!-- =====================================================
+       SERVICIOS (CARDS GLASSMORPHISM)
+       -----------------------------------------------------
+       - Bootstrap grid crea el layout con `row g-4` y columnas `col-md-4`.
+       - Cada card usa `.card-servicio` para el efecto glassmorphism:
+         fondo semitransparente + `backdrop-filter` + borde.
+       - El hover aplica lift (`transform: translateY(-10px)`) y una
+         sombra sutil sin cambiar la estructura.
+  ===================================================== -->
 
   <section
     id="servicios"
@@ -343,9 +377,13 @@
 
   </section>
 
-  <!-- =========================
+  <!-- =====================================================
        CONTACTO
-  ========================== -->
+       -----------------------------------------------------
+       - Contenedor “glass” (`.info-contacto`).
+       - CTA directo a WhatsApp con link `wa.me`.
+       - `target="_blank"` + `rel="noopener"` por seguridad.
+  ===================================================== -->
 
   <section
     id="contacto"
@@ -399,8 +437,12 @@
 
   </footer>
 
-  <!-- Bootstrap -->
-
+  <!-- =====================================================
+       BOOTSTRAP JS (SOLO PARA EL COLLAPSE DEL MENÚ)
+       -----------------------------------------------------
+       Se usa `bootstrap.bundle.min.js` (incluye Popper).
+       No contiene lógica propia del sitio.
+  ===================================================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
