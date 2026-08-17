@@ -1,0 +1,4 @@
+- [ ] Crear clase CSS para el logo con look azul/turquesa/blanco/negro (glow, drop-shadow, animación flotante)
+- [ ] Aplicar clase al logo del hero y al logo dentro de la card de Proyectos
+- [ ] Ajustar el glow del contenedor para que combine con el nuevo esquema de color
+- [ ] Validar que no rompa el layout responsive
