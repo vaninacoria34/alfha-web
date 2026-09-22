@@ -4,46 +4,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALFHA Soluciones Digitales | Experiencias Web Dinámicas e Innovadoras</title>
-  
-  <!-- Google Fonts: Poppins & Space Grotesk -->
+  <title>Vanina Coria | Programadora Full Stack</title>
+  <meta name="description"
+    content="Portfolio de Vanina Coria, Programadora Full Stack. Desarrollo web moderno, responsive y orientado a soluciones digitales reales.">
+  <meta name="keywords"
+    content="Vanina Coria, programadora full stack, desarrollo web, portfolio, frontend, backend, JavaScript, Argentina">
+  <meta name="author" content="Vanina Coria">
+  <meta property="og:title" content="Vanina Coria | Programadora Full Stack">
+  <meta property="og:description" content="Portfolio creativo y profesional de Vanina Coria.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="image/logo-alfha.png">
+  <meta name="theme-color" content="#f7f4ef">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome 6 Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Bootstrap 5.3.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div id="scroll-progress-bar"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
 
-  <!-- CANVAS DE PARTÍCULAS ESPACIALES -->
-  <canvas id="bg-canvas"></canvas>
-
-  <!-- SEGUIDOR DE CURSOR CON HALO GLOW -->
-  <div id="cursor-glow"></div>
-
-  <!-- LUCES AMBIENTALES FLOTANTES -->
-  <div class="space-bg-glows">
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
-    <div class="glow-orb glow-orb-3"></div>
-  </div>
-
-  <!-- PRELOADER DINÁMICO COHETE -->
-  <div class="rocket-loader" id="rocket-loader">
-    <div class="loader-content">
-      <div class="rocket-ring">
-        <div class="rocket-icon">🚀</div>
-      </div>
-      <div class="loader-title">
-        <span class="gradient-text">ALFHA</span> SOLUCIONES DIGITALES
+  <div class="app-loader" id="app-loader">
+    <div class="loader-shell">
+      <div class="loader-mark">&lt;/&gt;</div>
+      <p class="loader-kicker">VANINA CORIA</p>
+      <h2>FULL STACK DEVELOPER</h2>
+      <div class="loader-line">
+        <span id="loader-typed">Cargando nuevas ideas</span><span class="typing-cursor">|</span>
       </div>
       <div class="loader-progress-bar">
         <div class="loader-progress-fill" id="loader-progress-fill"></div>
@@ -52,38 +46,28 @@
     </div>
   </div>
 
-  <!-- NAVBAR GLASSMORPHISM -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#inicio">
-        <img src="image/logo-alfha.png" alt="ALFHA Logo" class="brand-logo-img">
-        <span class="gradient-text">ALFHA</span>
+      <a class="navbar-brand" href="#inicio" aria-label="Inicio">
+        <span class="brand-monogram">VC</span>
+        <span>Vanina Coria</span>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir navegación">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu"
+        aria-expanded="false" aria-label="Abrir navegacion">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item">
-            <a class="nav-link active" href="#inicio">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#sobre">Sobre mí</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#servicios">Servicios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#proyectos">Proyectos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#cotizador">Cotizador Express</a>
-          </li>
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#formacion">Formacion</a></li>
           <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
             <a class="btn btn-nav-cta" href="#contacto">
-              <i class="fab fa-whatsapp me-1"></i> Contactar
+              <i class="fa-solid fa-paper-plane"></i> Hablemos
             </a>
           </li>
         </ul>
@@ -91,539 +75,376 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section id="inicio" class="hero">
-    <div class="container">
-      <div class="row align-items-center hero-row">
-        
-        <div class="col-lg-6 hero-left">
-          <div class="hero-tag">
-            <span class="pulse-dot"></span>
-            ⚡ INNOVACIÓN DIGITAL & DESARROLLO WEB
-          </div>
-
-          <h1>
-            Transformo ideas en<br>
-            <span class="typewriter-wrapper">
-              <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
-            </span>
-          </h1>
-
-          <p>
-            En <strong>ALFHA Soluciones Digitales</strong> desarrollo páginas web modernas, sistemas a medida e interfaces de alto impacto visual diseñadas para hacer destacar tu negocio.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#cotizador" class="btn-primary-glow">
-              <i class="fas fa-rocket"></i> Cotizar mi Sitio
-            </a>
-            <a href="#proyectos" class="btn-secondary-glass">
-              <i class="fas fa-eye"></i> Ver Trabajos
-            </a>
-          </div>
-
-          <div class="hero-mini-features">
-            <div class="mini-feat-item">
-              <i class="fas fa-check-circle"></i> Diseño 100% Adaptable
-            </div>
-            <div class="mini-feat-item">
-              <i class="fas fa-bolt"></i> Carga Ultra Rápida
-            </div>
-            <div class="mini-feat-item">
-              <i class="fas fa-shield-alt"></i> Código Optimizado
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6 hero-right text-center mt-5 mt-lg-0">
-          <div class="hero-image-container">
-            <div class="floating-badge badge-top-left">
-              <i class="fas fa-magic text-warning"></i>
-              <span>UI/UX Innovador</span>
-            </div>
-
-            <div class="hero-image-wrapper">
-              <img src="image/logo-alfha.png" alt="ALFHA Soluciones Digitales" class="hero-img img-fluid">
-            </div>
-
-            <div class="floating-badge badge-bottom-right">
-              <i class="fas fa-code text-info"></i>
-              <span>Desarrollo Web Pro</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS BAR -->
-  <section id="stats" class="stats-section">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-6 col-md-3">
-          <div class="glass-card stats-card">
-            <div class="stat-number" data-target="15" data-prefix="+">0</div>
-            <div class="stat-label">Proyectos Entregados</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="glass-card stats-card">
-            <div class="stat-number" data-target="100" data-suffix="%">0</div>
-            <div class="stat-label">Clientes Satisfechos</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="glass-card stats-card">
-            <div class="stat-number" data-target="100" data-suffix="%">0</div>
-            <div class="stat-label">Diseño Responsive</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="glass-card stats-card">
-            <div class="stat-number" data-target="24" data-suffix="/7">0</div>
-            <div class="stat-label">Soporte & Asistencia</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOBRE MÍ -->
-  <section id="sobre" class="sobre">
-    <div class="container">
-      <div class="glass-card sobre-card">
-        <div class="row align-items-center">
-          <div class="col-lg-12 sobre-text text-center text-lg-start">
-            <div class="text-center mb-4">
-              <span class="section-tag"><i class="fas fa-user-astronaut me-1"></i> Mi Historia</span>
-              <h2 class="section-title">Sobre <span class="gradient-text">ALFHA</span></h2>
-            </div>
-
-            <p>
-              Soy <strong>Vanina Coria</strong>, fundadora de <strong>ALFHA Soluciones Digitales</strong>. Mi camino en el mundo de la tecnología comenzó gracias a <strong>CILSA</strong>, donde descubrí mi pasión por la programación y encontré las herramientas para crecer profesionalmente.
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Ideas. Codigo. Impacto.</p>
+            <h1>Vanina<br>Coria</h1>
+            <p class="role">Programadora Full Stack <span class="typing-cursor">|</span></p>
+            <p class="hero-description">
+              Desarrollo soluciones web que combinan tecnologia, diseno y experiencia de usuario para transformar ideas
+              en productos digitales claros, utiles y memorables.
             </p>
 
-            <p>
-              Durante este proceso conté con el valioso apoyo de <strong>Maximiliano Bauza</strong>, quien me orientó, motivó y acompañó para convertir una idea en un proyecto tecnológico real.
-            </p>
+            <div class="hero-buttons">
+              <a href="#proyectos" class="btn-primary-glow">
+                Ver proyectos <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#contacto" class="btn-secondary-glass">
+                Contactame <i class="fa-regular fa-message"></i>
+              </a>
+            </div>
 
-            <p>
-              Hoy, a través de <strong>ALFHA Soluciones Digitales</strong>, creo sitios web y plataformas digitales pensadas para potenciar emprendedores, comercios y empresas, combinando estética moderna, funcionalidad fluida y máxima accesibilidad.
-            </p>
-
-            <div class="d-flex flex-wrap justify-center justify-content-lg-start gap-3 mt-4">
-              <div class="mention-badge">
-                <i class="fas fa-heart text-danger"></i> Agradecimiento especial a CILSA
+            <div class="hero-stats" id="stats">
+              <div>
+                <span class="stat-number" data-target="3" data-prefix="+">0</span>
+                <small>Anos de experiencia</small>
               </div>
-              <div class="mention-badge">
-                <i class="fas fa-star text-warning"></i> Tutoría y Mentoría: Maximiliano Bauza
+              <div>
+                <span class="stat-number" data-target="15" data-prefix="+">0</span>
+                <small>Proyectos realizados</small>
+              </div>
+              <div>
+                <span class="stat-number" data-target="100" data-suffix="%">0</span>
+                <small>Compromiso</small>
               </div>
             </div>
           </div>
+
+          <div class="hero-visual" aria-label="Identidad visual del portfolio">
+            <div class="shape shape-coral"></div>
+            <div class="shape shape-mint"></div>
+            <div class="shape shape-blue"></div>
+
+            <div class="portrait-card">
+              <img class="portrait-photo" src="image/mia.png" alt="Vanina Coria"
+                onerror="this.classList.add('is-missing')" onload="this.classList.add('is-loaded')">
+              <div class="portrait-header">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="code-card">
+                <p>const ideas =</p>
+                <p><span>[</span>"personas", "codigo", "impacto"<span>]</span>;</p>
+              </div>
+              <div class="identity-note">
+                <span>Good Code</span>
+                <span>Better People</span>
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-one">
+              <i class="fa-solid fa-code"></i>
+              <span>Front + Back</span>
+            </div>
+            <div class="floating-card floating-card-two">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>UI con detalle</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SERVICIOS -->
-  <section id="servicios" class="servicios">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tag"><i class="fas fa-cogs me-1"></i> Lo que hago</span>
-        <h2 class="section-title">Servicios <span class="gradient-text">Digitales</span></h2>
-        <p class="section-subtitle">Soluciones personalizadas adaptadas a las necesidades específicas de tu negocio.</p>
-      </div>
+    <section id="sobre" class="sobre section-band">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-dot"></span>
+          <p>Sobre mi</p>
+          <h2>Mas que codigo, me mueven las personas.</h2>
+        </div>
 
-      <div class="row g-4">
-        
-        <div class="col-md-4">
-          <div class="glass-card card-servicio">
-            <div class="servicio-icon">
-              <i class="fas fa-laptop-code"></i>
+        <div class="about-layout">
+          <div class="about-text">
+            <p>
+              Soy Vanina Coria, programadora Full Stack. Me gusta crear experiencias digitales que se vean prolijas,
+              funcionen bien en cualquier dispositivo y resuelvan necesidades concretas.
+            </p>
+            <p>
+              Mi camino en tecnologia nacio desde el aprendizaje constante, la practica y el acompanamiento de personas
+              que me impulsaron a crecer. Hoy busco construir proyectos con proposito, cercanos y faciles de usar.
+            </p>
+          </div>
+
+          <div class="about-points">
+            <div>
+              <i class="fa-solid fa-seedling"></i>
+              <strong>Mentalidad de crecimiento</strong>
+              <span>Siempre aprendiendo algo nuevo.</span>
             </div>
-            <h3>Páginas Web Modernas</h3>
-            <p>Diseño exclusivo, elegante y totalmente adaptable a celulares, tablets y computadoras.</p>
-            <ul class="servicio-list">
-              <li><i class="fas fa-check"></i> Adaptabilidad Móvil (Responsive)</li>
-              <li><i class="fas fa-check"></i> Integración directa a WhatsApp</li>
-              <li><i class="fas fa-check"></i> Optimización SEO de velocidad</li>
-            </ul>
+            <div>
+              <i class="fa-solid fa-people-group"></i>
+              <strong>Trabajo en equipo</strong>
+              <span>La tecnologia mejora cuando escucha.</span>
+            </div>
+            <div>
+              <i class="fa-solid fa-bullseye"></i>
+              <strong>Enfoque en soluciones</strong>
+              <span>De los problemas a las oportunidades.</span>
+            </div>
+            <div>
+              <i class="fa-solid fa-heart"></i>
+              <strong>Tecnologia con proposito</strong>
+              <span>Productos mas claros, humanos y utiles.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologias" class="tech-section">
+      <div class="container">
+        <div class="section-heading compact">
+          <span class="section-dot"></span>
+          <p>Tecnologias</p>
+          <h2>Herramientas que uso</h2>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-badge"><i class="fab fa-html5"></i><span>HTML5</span></div>
+          <div class="tech-badge"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+          <div class="tech-badge"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+          <div class="tech-badge"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+          <div class="tech-badge"><i class="fa-solid fa-mobile-screen"></i><span>Responsive</span></div>
+          <div class="tech-badge"><i class="fa-solid fa-database"></i><span>Datos</span></div>
+          <div class="tech-badge"><i class="fab fa-git-alt"></i><span>Git</span></div>
+          <div class="tech-badge"><i class="fa-solid fa-gauge-high"></i><span>Performance</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="proyectos">
+      <div class="container">
+        <div class="projects-header">
+          <div class="section-heading compact">
+            <span class="section-dot"></span>
+            <p>Proyectos destacados</p>
+            <h2>Ideas que se vuelven realidad</h2>
+          </div>
+
+          <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            <button class="filter-btn" data-filter="corporate">Institucional</button>
+            <button class="filter-btn" data-filter="brand">Marca</button>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="glass-card card-servicio">
-            <div class="servicio-icon">
-              <i class="fas fa-layer-group"></i>
-            </div>
-            <h3>Sistemas & Ecommerce</h3>
-            <p>Desarrollo de plataformas interactivas, catálogos digitales y tiendas con gestión de pedidos.</p>
-            <ul class="servicio-list">
-              <li><i class="fas fa-check"></i> Catálogo dinámico de productos</li>
-              <li><i class="fas fa-check"></i> Carrito de compras integrado</li>
-              <li><i class="fas fa-check"></i> Paneles de administración</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="glass-card card-servicio">
-            <div class="servicio-icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h3>Modernización Web</h3>
-            <p>Renovación estética de sitios antiguos para transformarlos en experiencias interactivas actuales.</p>
-            <ul class="servicio-list">
-              <li><i class="fas fa-check"></i> Rediseño con Glassmorphism</li>
-              <li><i class="fas fa-check"></i> Efectos y animaciones fluidas</li>
-              <li><i class="fas fa-check"></i> Mejor tasa de conversión</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TECH STACK GRID -->
-  <section class="tech-section">
-    <div class="container text-center">
-      <p class="text-muted mb-3 font-heading text-uppercase" style="letter-spacing: 2px; font-size: 0.85rem;">Tecnologías que utilizo</p>
-      <div class="tech-grid">
-        <div class="tech-badge"><i class="fab fa-html5 text-danger"></i> HTML5 Semantic</div>
-        <div class="tech-badge"><i class="fab fa-css3-alt text-primary"></i> CSS3 / Modern Flex & Grid</div>
-        <div class="tech-badge"><i class="fab fa-js-square text-warning"></i> JavaScript ES6+</div>
-        <div class="tech-badge"><i class="fab fa-bootstrap text-purple" style="color: #7952b5;"></i> Bootstrap 5</div>
-        <div class="tech-badge"><i class="fas fa-mobile-alt text-info"></i> Responsive UI/UX</div>
-        <div class="tech-badge"><i class="fab fa-whatsapp text-success"></i> WhatsApp Business API</div>
-        <div class="tech-badge"><i class="fas fa-tachometer-alt text-warning"></i> Web Performance</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROYECTOS -->
-  <section id="proyectos" class="proyectos">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tag"><i class="fas fa-briefcase me-1"></i> Portafolio</span>
-        <h2 class="section-title">Proyectos <span class="gradient-text">Destacados</span></h2>
-        <p class="section-subtitle">Explorá algunos de los desarrollos que he construido para potenciar negocios reales.</p>
-      </div>
-
-      <!-- Filtros -->
-      <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="ecommerce">E-commerce & Delivery</button>
-        <button class="filter-btn" data-filter="corporate">Corporativos</button>
-        <button class="filter-btn" data-filter="brand">Marca & Plataforma</button>
-      </div>
-
-      <div class="row g-4" id="projects-grid">
-
-        <!-- Proyecto 1: Sanbauben -->
-        <div class="col-lg-6 project-item" data-category="ecommerce">
-          <div class="glass-card card-proyecto">
-            <div class="proyecto-img-box">
-              <img src="image/sanbauben.PNG" alt="Sanbauben Minimercado & Delivery">
-              <div class="proyecto-overlay">
-                <button class="btn btn-primary-glow btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal" 
-                  data-title="Sanbauben Delivery & Minimercado" 
-                  data-img="image/sanbauben.PNG" 
-                  data-desc="Plataforma de delivery y minimercado interactiva con catálogo dinámico de productos, filtro por categorías, carrito de compras en tiempo real y envío de pedidos directo a WhatsApp."
-                  data-tags="HTML5, CSS3, JavaScript, Carrito de Compras, WhatsApp API">
-                  <i class="fas fa-search me-1"></i> Ver Detalles
+        <div class="row g-4" id="projects-grid">
+          <div class="col-lg-6 project-item" data-category="ecommerce">
+            <article class="card-proyecto featured-project">
+              <div class="proyecto-img-box">
+                <img src="image/sanbauben.PNG" alt="Sanbauben Minimercado y Delivery">
+                <button class="project-open" data-bs-toggle="modal" data-bs-target="#projectModal"
+                  data-title="Sanbauben Delivery & Minimercado" data-img="image/sanbauben.PNG"
+                  data-desc="Plataforma de delivery y minimercado con catalogo dinamico, filtros por categoria, carrito de compras y envio directo por WhatsApp."
+                  data-tags="HTML5, CSS3, JavaScript, Carrito, WhatsApp">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </button>
               </div>
-            </div>
-            <div class="proyecto-content">
-              <h3>🛒 Sanbauben</h3>
-              <p>Plataforma de delivery y minimercado con catálogo dinámico, carrito de compras y gestión directa de pedidos vía WhatsApp.</p>
-              <div class="proyecto-tags">
-                <span class="tag-mini">Delivery</span>
-                <span class="tag-mini">E-Commerce</span>
-                <span class="tag-mini">WhatsApp Orders</span>
+              <div class="proyecto-content">
+                <h3>Sanbauben</h3>
+                <p>Delivery, catalogo y experiencia de compra simple para clientes desde celular.</p>
+                <div class="proyecto-tags">
+                  <span class="tag-mini">Delivery</span>
+                  <span class="tag-mini">E-commerce</span>
+                  <span class="tag-mini">Mobile first</span>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
-        </div>
 
-        <!-- Proyecto 2: La Llave -->
-        <div class="col-lg-6 project-item" data-category="corporate">
-          <div class="glass-card card-proyecto">
-            <div class="proyecto-img-box">
-              <img src="image/la-llave-de-camino.PNG" alt="La Llave de Camino">
-              <div class="proyecto-overlay">
-                <button class="btn btn-primary-glow btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal" 
-                  data-title="La Llave - Sitio Corporativo" 
-                  data-img="image/la-llave-de-camino.PNG" 
-                  data-desc="Sitio institucional moderno diseñado con tipografía elegante, layout corporativo de alta conversión, formulario interactivo de consulta y llamadas a la acción claras."
+          <div class="col-lg-6 project-item" data-category="corporate">
+            <article class="card-proyecto">
+              <div class="proyecto-img-box">
+                <img src="image/la-llave-de-camino.PNG" alt="La Llave de Camino">
+                <button class="project-open" data-bs-toggle="modal" data-bs-target="#projectModal"
+                  data-title="La Llave de Camino" data-img="image/la-llave-de-camino.PNG"
+                  data-desc="Sitio institucional con estructura clara, presentacion de servicios, formulario de consulta y llamadas a la accion."
                   data-tags="HTML5, CSS3, JavaScript, UI/UX, Bootstrap">
-                  <i class="fas fa-search me-1"></i> Ver Detalles
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </button>
               </div>
-            </div>
-            <div class="proyecto-content">
-              <h3>🔑 La Llave</h3>
-              <p>Sitio corporativo de alta presencia visual enfocado en presentar servicios y captar nuevos clientes interesados.</p>
-              <div class="proyecto-tags">
-                <span class="tag-mini">Institucional</span>
-                <span class="tag-mini">Corporativo</span>
-                <span class="tag-mini">Lead Gen</span>
+              <div class="proyecto-content">
+                <h3>La Llave de Camino</h3>
+                <p>Presencia institucional elegante para comunicar servicios y generar contacto.</p>
+                <div class="proyecto-tags">
+                  <span class="tag-mini">Institucional</span>
+                  <span class="tag-mini">UX</span>
+                  <span class="tag-mini">Contacto</span>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
-        </div>
 
-        <!-- Proyecto 3: ALFHA -->
-        <div class="col-lg-6 project-item" data-category="brand">
-          <div class="glass-card card-proyecto">
-            <div class="proyecto-img-box">
-              <img src="image/logo-alfha.png" alt="ALFHA Soluciones Digitales" style="object-fit: contain; padding: 20px;">
-              <div class="proyecto-overlay">
-                <button class="btn btn-primary-glow btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal" 
-                  data-title="ALFHA Soluciones Digitales" 
-                  data-img="image/logo-alfha.png" 
-                  data-desc="Página institucional y marca propia desarrollada con animaciones espaciales, efecto glassmorphism, cotizador express interactivo y diseño futurista."
-                  data-tags="HTML5 Canvas, CSS Glassmorphism, JS Animations, Responsive">
-                  <i class="fas fa-search me-1"></i> Ver Detalles
+          <div class="col-lg-6 project-item" data-category="corporate">
+            <article class="card-proyecto">
+              <div class="proyecto-img-box">
+                <img src="image/bella-imagen.PNG" alt="Bella Imagen">
+                <button class="project-open" data-bs-toggle="modal" data-bs-target="#projectModal"
+                  data-title="Bella Imagen" data-img="image/bella-imagen.PNG"
+                  data-desc="Sitio web moderno para servicios de belleza y estetica, con galeria visual, contenido claro y contacto directo."
+                  data-tags="HTML5, CSS3, JavaScript, Responsive, WhatsApp">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </button>
               </div>
-            </div>
-            <div class="proyecto-content">
-              <h3>🚀 ALFHA Soluciones Digitales</h3>
-              <p>Ecosistema web institucional para la presentación de servicios tecnológicos y soluciones digitales personalizadas.</p>
-              <div class="proyecto-tags">
-                <span class="tag-mini">Branding</span>
-                <span class="tag-mini">Glassmorphism</span>
-                <span class="tag-mini">Interactive Web</span>
+              <div class="proyecto-content">
+                <h3>Bella Imagen</h3>
+                <p>Diseno limpio para mostrar servicios, confianza y conversion desde WhatsApp.</p>
+                <div class="proyecto-tags">
+                  <span class="tag-mini">Belleza</span>
+                  <span class="tag-mini">Responsive</span>
+                  <span class="tag-mini">WhatsApp</span>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
-        </div>
 
-        <!-- Proyecto 4: Tienda Online -->
-        <div class="col-lg-6 project-item" data-category="ecommerce">
-          <div class="glass-card card-proyecto">
-            <div class="proyecto-img-box">
-              <img src="image/tienda-online.PNG" alt="Tienda Online Responsive">
-              <div class="proyecto-overlay">
-                <button class="btn btn-primary-glow btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal" 
-                  data-title="Tienda Online Multidispositivo" 
-                  data-img="image/tienda-online.PNG" 
-                  data-desc="Ecommerce adaptativo con vitrina de productos, precios dinámicos, botón de compra rápido y diseño optimizado para celulares."
-                  data-tags="E-commerce, Responsive, Mobile First, UX">
-                  <i class="fas fa-search me-1"></i> Ver Detalles
+          <div class="col-lg-6 project-item" data-category="brand">
+            <article class="card-proyecto">
+              <div class="proyecto-img-box logo-project">
+                <img src="image/logo-alfha.png" alt="ALFHA Soluciones Digitales">
+                <button class="project-open" data-bs-toggle="modal" data-bs-target="#projectModal"
+                  data-title="ALFHA Soluciones Digitales" data-img="image/logo-alfha.png"
+                  data-desc="Marca propia y sitio de servicios digitales con animaciones, identidad visual y enfoque comercial."
+                  data-tags="Branding, CSS, JavaScript, Animaciones, Responsive">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </button>
               </div>
-            </div>
-            <div class="proyecto-content">
-              <h3>🛍️ Tienda Online</h3>
-              <p>Tienda digital optimizada para ventas online con navegación rápida y experiencia de compra limpia en cualquier dispositivo.</p>
-              <div class="proyecto-tags">
-                <span class="tag-mini">E-Commerce</span>
-                <span class="tag-mini">Tienda Virtual</span>
-                <span class="tag-mini">Mobile First</span>
+              <div class="proyecto-content">
+                <h3>ALFHA Soluciones Digitales</h3>
+                <p>Identidad digital para presentar servicios web y soluciones a medida.</p>
+                <div class="proyecto-tags">
+                  <span class="tag-mini">Branding</span>
+                  <span class="tag-mini">Animacion</span>
+                  <span class="tag-mini">Web</span>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CALCULADORA EXPRESS DE PRESUPUESTO -->
-  <section id="cotizador" class="calculator-section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tag"><i class="fas fa-calculator me-1"></i> Herramienta Interactiva</span>
-        <h2 class="section-title">Cotizador Express de <span class="gradient-text">Presupuesto</span></h2>
-        <p class="section-subtitle">Seleccioná los requerimientos de tu proyecto y obtené una estimación instantánea.</p>
+    <section id="formacion" class="formacion section-band">
+      <div class="container">
+        <div class="section-heading compact">
+          <span class="section-dot"></span>
+          <p>Formacion</p>
+          <h2>Mi camino de aprendizaje</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span>2020</span>
+            <h3>Primeros pasos en desarrollo web</h3>
+            <p>HTML, CSS, JavaScript y fundamentos para construir interfaces responsive.</p>
+          </div>
+          <div class="timeline-item">
+            <span>2022</span>
+            <h3>Formacion tecnica y practica</h3>
+            <p>Proyectos reales, trabajo con estructura, diseno visual y experiencia de usuario.</p>
+          </div>
+          <div class="timeline-item">
+            <span>2024</span>
+            <h3>Desarrollo Full Stack</h3>
+            <p>Integracion de logica, datos, buenas practicas y soluciones orientadas a negocio.</p>
+          </div>
+          <div class="timeline-item">
+            <span>Siempre</span>
+            <h3>Aprendizaje continuo</h3>
+            <p>La tecnologia cambia, y yo tambien crezco con cada desafio.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="glass-card calculator-card">
-        <div class="row">
-          <div class="col-lg-8">
-            
-            <!-- TIPO DE PROYECTO -->
-            <div class="calc-option-group">
-              <span class="calc-label"><i class="fas fa-globe text-info me-2"></i> 1. Tipo de Proyecto Principal:</span>
-              <div class="calc-grid">
-                <label class="calc-box selected" data-name="Página Landing Page">
-                  <input type="radio" name="project-type" value="45000" checked>
-                  <div>
-                    <strong>Landing Page</strong>
-                    <div class="text-muted style-sm" style="font-size:0.8rem;">Página única promocional</div>
-                  </div>
-                </label>
-
-                <label class="calc-box" data-name="Sitio Web Institucional">
-                  <input type="radio" name="project-type" value="75000">
-                  <div>
-                    <strong>Sitio Corporativo</strong>
-                    <div class="text-muted style-sm" style="font-size:0.8rem;">Multipágina (3-5 secciones)</div>
-                  </div>
-                </label>
-
-                <label class="calc-box" data-name="Tienda Online / Delivery">
-                  <input type="radio" name="project-type" value="110000">
-                  <div>
-                    <strong>E-Commerce / Delivery</strong>
-                    <div class="text-muted style-sm" style="font-size:0.8rem;">Catálogo + Carrito WhatsApp</div>
-                  </div>
-                </label>
-              </div>
+    <section id="contacto" class="contacto">
+      <div class="container">
+        <div class="contact-layout">
+          <div>
+            <div class="section-heading compact">
+              <span class="section-dot"></span>
+              <p>Contacto</p>
+              <h2>Hablemos de tu proxima idea.</h2>
             </div>
-
-            <!-- ADICIONALES -->
-            <div class="calc-option-group mt-4">
-              <span class="calc-label"><i class="fas fa-puzzle-piece text-warning me-2"></i> 2. Funcionalidades Adicionales:</span>
-              <div class="calc-grid">
-                <label class="calc-box" data-name="Dominio y Hosting por 1 año">
-                  <input type="checkbox" name="feature-addon" value="25000">
-                  <div>
-                    <strong>Dominio + Hosting (1 Año)</strong>
-                    <div class="text-muted" style="font-size:0.8rem;">Servidor rápido y seguro</div>
-                  </div>
-                </label>
-
-                <label class="calc-box" data-name="Optimización SEO Avanzada">
-                  <input type="checkbox" name="feature-addon" value="18000">
-                  <div>
-                    <strong>SEO Avanzado Google</strong>
-                    <div class="text-muted" style="font-size:0.8rem;">Mayor visibilidad en búsquedas</div>
-                  </div>
-                </label>
-
-                <label class="calc-box" data-name="Panel de Administración Personalizado">
-                  <input type="checkbox" name="feature-addon" value="30000">
-                  <div>
-                    <strong>Panel Administrable</strong>
-                    <div class="text-muted" style="font-size:0.8rem;">Gestión autónoma de contenidos</div>
-                  </div>
-                </label>
-              </div>
-            </div>
-
+            <p class="contact-copy">
+              Si tenes un proyecto, una idea o simplemente queres conectar, me encantaria escucharte.
+            </p>
           </div>
 
-          <!-- RESUMEN DE COTIZACIÓN -->
-          <div class="col-lg-4 mt-4 mt-lg-0 d-flex align-items-center">
-            <div class="calc-price-summary w-100">
-              <h4 class="mb-2">Presupuesto Estimado</h4>
-              <div class="price-display" id="estimated-price">$45.000</div>
-              <p class="text-muted style-sm mb-4" style="font-size: 0.85rem;">*Estimado inicial en ARS. Puede variar según requerimientos específicos.</p>
-              
-              <a href="#" id="send-quote-whatsapp" target="_blank" class="btn btn-primary-glow w-100 justify-content-center">
-                <i class="fab fa-whatsapp me-2"></i> Enviar Cotización
+          <div class="contact-panel">
+            <a class="contact-link"
+              href="https://wa.me/543425238984?text=Hola%20Vanina,%20quiero%20consultar%20sobre%20tu%20trabajo."
+              target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i>
+              Escribir por WhatsApp
+            </a>
+            <div class="email-row">
+              <span>vaninamariselcoria75@gmail.com</span>
+              <button id="copy-email-btn" type="button" aria-label="Copiar email">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+            <div class="social-row">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="fab fa-github"></i>
               </a>
             </div>
           </div>
-
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="contacto">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-tag"><i class="fas fa-comments me-1"></i> Contacto Directo</span>
-        <h2 class="section-title">¿Listo para dar el <span class="gradient-text">Siguiente Paso</span>?</h2>
-        <p class="section-subtitle">Conversemos sobre tu proyecto y construyamos juntos la presencia web que tu negocio necesita.</p>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="glass-card contact-card">
-            
-            <div class="status-pill">
-              <span class="pulse-dot"></span> Disponible para nuevos proyectos
-            </div>
-
-            <h3 class="mb-3">Enviame un mensaje directo por WhatsApp</h3>
-            <p class="text-muted mb-4">Recibirás una respuesta personalizada para evaluar las mejores opciones para tu sitio.</p>
-
-            <div class="mb-4">
-              <a class="btn-whatsapp-big" href="https://wa.me/543425238984?text=Hola%20Vanina,%20quiero%20consultar%20sobre%20tus%20servicios." target="_blank" rel="noopener">
-                <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
-              </a>
-            </div>
-
-            <div class="pt-3 border-top border-secondary">
-              <p class="text-muted mb-2"><i class="fas fa-envelope me-2 text-info"></i> Correo Electrónico:</p>
-              <div class="d-inline-flex align-items-center gap-2 p-2 px-3 rounded-pill" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass);">
-                <span class="fw-bold">vaninamariselcoria75@gmail.com</span>
-                <button class="btn btn-sm btn-outline-info rounded-circle ms-2" id="copy-email-btn" title="Copiar email">
-                  <i class="fas fa-copy"></i>
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-          <p class="mb-0">© 2026 <strong>ALFHA Soluciones Digitales</strong>. Desarrollado por Vanina Coria.</p>
-        </div>
-        <div class="col-md-6 text-center text-md-end">
-          <a href="#inicio" class="text-decoration-none text-muted me-3">Inicio</a>
-          <a href="#servicios" class="text-decoration-none text-muted me-3">Servicios</a>
-          <a href="#proyectos" class="text-decoration-none text-muted me-3">Proyectos</a>
-          <a href="#contacto" class="text-decoration-none text-muted">Contacto</a>
-        </div>
-      </div>
+    <div class="container footer-inner">
+      <p>Vanina Coria - Programadora Full Stack</p>
+      <p>Ideas de hoy. Soluciones para manana.</p>
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/543425238984?text=Hola%20Vanina,%20quiero%20consultar%20sobre%20tus%20servicios." class="floating-whatsapp" target="_blank" rel="noopener" title="Contactar por WhatsApp">
+  <button id="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <a href="https://wa.me/543425238984?text=Hola%20Vanina,%20quiero%20consultar%20sobre%20tu%20trabajo."
+    class="floating-whatsapp" target="_blank" rel="noopener" title="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- MODAL DE DETALLE DE PROYECTO -->
   <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title font-heading fw-bold" id="modal-title">Detalle del Proyecto</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          <h5 class="modal-title font-heading fw-bold" id="modal-title">Detalle del proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
           <div class="text-center mb-4">
-            <img id="modal-img" src="" alt="Vista previa del proyecto" class="img-fluid rounded-3" style="max-height: 380px; object-fit: contain;">
+            <img id="modal-img" src="" alt="Vista previa del proyecto" class="img-fluid rounded-3">
           </div>
-          <p id="modal-desc" class="text-muted" style="font-size: 1.05rem; line-height: 1.7;"></p>
-          
-          <div class="mt-4">
-            <h6 class="font-heading mb-2">Tecnologías & Herramientas:</h6>
-            <div id="modal-tags" class="d-flex flex-wrap gap-2"></div>
-          </div>
+          <p id="modal-desc"></p>
+          <div id="modal-tags" class="d-flex flex-wrap gap-2"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary-glass btn-sm" data-bs-dismiss="modal">Cerrar</button>
-          <a href="https://wa.me/543425238984?text=Hola%20Vanina,%20me%20interesa%20un%20proyecto%20similar%20al%20que%20vi%20en%20tu%20sitio." target="_blank" class="btn btn-primary-glow btn-sm">
-            <i class="fab fa-whatsapp me-1"></i> Consultar Proyecto Similar
+          <a href="https://wa.me/543425238984?text=Hola%20Vanina,%20me%20interesa%20un%20proyecto%20similar."
+            target="_blank" class="btn btn-primary-glow btn-sm" rel="noopener">
+            Consultar proyecto
+            <i class="fab fa-whatsapp"></i>
           </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- BOOTSTRAP 5.3.3 BUNDLE JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- CUSTOM SCRIPT -->
   <script src="script.js"></script>
-
 </body>
+
 </html>
