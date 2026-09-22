@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   const preloader = document.getElementById('app-loader');
   const progressFill = document.getElementById('loader-progress-fill');
   const percentText = document.getElementById('loader-percent');
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Listo'
   ];
 
-  let progress = 0;
+  let progress = motionPreference.matches ? 100 : 0;
   let messageIndex = 0;
 
   const interval = setInterval(() => {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (progress >= 100) {
       clearInterval(interval);
-      setTimeout(() => preloader?.classList.add('fade-out'), 450);
+      setTimeout(() => preloader?.classList.add('fade-out'), motionPreference.matches ? 0 : 450);
     }
   }, 75);
 
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function animateParticles() {
+      if (motionPreference.matches) return;
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach((particle, index) => {
@@ -116,11 +118,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buildParticles();
     animateParticles();
+    motionPreference.addEventListener('change', (event) => {
+      if (!event.matches) animateParticles();
+    });
   }
 
   const cursorGlow = document.getElementById('cursor-glow');
   if (cursorGlow) {
     window.addEventListener('mousemove', (event) => {
+      if (motionPreference.matches) return;
       cursorGlow.style.left = `${event.clientX}px`;
       cursorGlow.style.top = `${event.clientY}px`;
     });
@@ -129,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tiltElements = document.querySelectorAll('.card-proyecto, .portrait-card');
   tiltElements.forEach((element) => {
     element.addEventListener('mousemove', (event) => {
+      if (motionPreference.matches) return;
       const rect = element.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
@@ -142,64 +149,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const statNumbers = document.querySelectorAll('.stat-number');
-  const statsSection = document.getElementById('stats');
-  let statsAnimated = false;
-
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting || statsAnimated) return;
-
-      statsAnimated = true;
-      statNumbers.forEach((counter) => {
-        const target = Number(counter.getAttribute('data-target'));
-        const prefix = counter.getAttribute('data-prefix') || '';
-        const suffix = counter.getAttribute('data-suffix') || '';
-        let count = 0;
-        const increment = Math.max(target / 36, 1);
-
-        const updateCount = () => {
-          count += increment;
-          if (count < target) {
-            counter.textContent = `${prefix}${Math.ceil(count)}${suffix}`;
-            setTimeout(updateCount, 28);
-          } else {
-            counter.textContent = `${prefix}${target}${suffix}`;
-          }
-        };
-
-        updateCount();
-      });
-    });
-  }, { threshold: 0.45 });
-
-  if (statsSection) countObserver.observe(statsSection);
-
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-item');
 
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach((item) => item.classList.remove('active'));
+      filterBtns.forEach((item) => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
 
       const filter = btn.getAttribute('data-filter');
       projectCards.forEach((card) => {
         const matches = filter === 'all' || card.getAttribute('data-category') === filter;
 
-        if (matches) {
-          card.style.display = 'block';
-          requestAnimationFrame(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-          });
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.96)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 260);
-        }
+        // Apply the latest filter immediately, including keyboard visibility.
+        card.hidden = !matches;
       });
     });
   });
@@ -211,22 +178,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!button) return;
 
       const title = button.getAttribute('data-title') || 'Proyecto';
-      const img = button.getAttribute('data-img') || '';
-      const desc = button.getAttribute('data-desc') || '';
-      const tags = button.getAttribute('data-tags') || '';
+      const card = button.closest('.card-proyecto');
+      const sourceImage = card.querySelector('.proyecto-img-box img');
 
       document.getElementById('modal-title').textContent = title;
-      document.getElementById('modal-img').src = img;
-      document.getElementById('modal-desc').textContent = desc;
+      const modalImage = document.getElementById('modal-img');
+      modalImage.src = sourceImage.getAttribute('src');
+      modalImage.alt = sourceImage.alt;
+      document.getElementById('modal-desc').replaceChildren(
+        ...[...card.querySelectorAll('.proyecto-content > p')].map((paragraph) => paragraph.cloneNode(true))
+      );
 
       const modalTagsBox = document.getElementById('modal-tags');
-      modalTagsBox.innerHTML = '';
-      tags.split(',').filter(Boolean).forEach((tag) => {
-        const span = document.createElement('span');
-        span.className = 'tag-mini';
-        span.textContent = tag.trim();
-        modalTagsBox.appendChild(span);
-      });
+      modalTagsBox.replaceChildren(...[...card.querySelectorAll('.tag-mini')].map((tag) => tag.cloneNode(true)));
     });
   }
 
@@ -248,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
   backToTop?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: motionPreference.matches ? 'instant' : 'smooth' });
   });
 
   const revealTargets = document.querySelectorAll(
@@ -261,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach((entry, index) => {
       if (!entry.isIntersecting) return;
 
-      setTimeout(() => entry.target.classList.add('visible'), (index % 5) * 80);
+      setTimeout(() => entry.target.classList.add('visible'), motionPreference.matches ? 0 : (index % 5) * 80);
       revealObserver.unobserve(entry.target);
     });
   }, { threshold: 0.14 });
@@ -278,28 +242,42 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!entry.isIntersecting) return;
 
       navLinks.forEach((link) => {
-        link.classList.toggle('active-scroll', link.getAttribute('href') === `#${entry.target.id}`);
+        const active = link.getAttribute('href') === `#${entry.target.id}`;
+        link.classList.toggle('active-scroll', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
       });
     });
   }, { rootMargin: '-38% 0px -56% 0px' });
 
   sections.forEach((section) => navObserver.observe(section));
 
+  document.querySelectorAll('.navbar a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const menu = document.getElementById('menu');
+      if (menu?.classList.contains('show') && window.bootstrap) {
+        window.bootstrap.Collapse.getOrCreateInstance(menu).hide();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+        }
+      }
+    });
+  });
+
   const copyEmailBtn = document.getElementById('copy-email-btn');
   if (copyEmailBtn) {
-    copyEmailBtn.addEventListener('click', () => {
-      const email = 'vaninamariselcoria75@gmail.com';
-      const copyAction = navigator.clipboard
-        ? navigator.clipboard.writeText(email)
-        : Promise.resolve();
-
-      copyAction.then(() => {
-        const original = copyEmailBtn.innerHTML;
-        copyEmailBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-        setTimeout(() => {
-          copyEmailBtn.innerHTML = original;
-        }, 1700);
-      });
+    copyEmailBtn.addEventListener('click', async () => {
+      const email = document.getElementById('contact-email').textContent.trim();
+      const status = document.getElementById('copy-email-status');
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(email);
+        status.textContent = 'Correo copiado.';
+      } catch {
+        status.textContent = 'No se pudo copiar. Podés seleccionar el correo o abrirlo con el enlace.';
+      }
     });
   }
 });

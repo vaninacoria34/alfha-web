@@ -15,6 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="image/logo-alfha.png">
   <meta name="theme-color" content="#f7f4ef">
+  <link rel="icon" href="image/logo-alfha.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,17 +28,18 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
   <div id="scroll-progress-bar"></div>
   <div id="cursor-glow" aria-hidden="true"></div>
 
-  <div class="app-loader" id="app-loader">
+  <div class="app-loader" id="app-loader" aria-hidden="true">
     <div class="loader-shell">
       <div class="loader-mark">&lt;/&gt;</div>
       <p class="loader-kicker">VANINA CORIA</p>
-      <h2>FULL STACK DEVELOPER</h2>
+      <p class="loader-role">FULL STACK DEVELOPER</p>
       <div class="loader-line">
-        <span id="loader-typed">Cargando nuevas ideas</span><span class="typing-cursor">|</span>
+        <span id="loader-typed">Cargando nuevas ideas</span><span class="typing-cursor" aria-hidden="true">|</span>
       </div>
       <div class="loader-progress-bar">
         <div class="loader-progress-fill" id="loader-progress-fill"></div>
@@ -54,20 +56,20 @@
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu"
-        aria-expanded="false" aria-label="Abrir navegacion">
+        aria-expanded="false" aria-label="Abrir navegación">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mi</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologías</a></li>
           <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#formacion">Formacion</a></li>
+          <li class="nav-item"><a class="nav-link" href="#formacion">Formación</a></li>
           <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
             <a class="btn btn-nav-cta" href="#contacto">
-              <i class="fa-solid fa-paper-plane"></i> Hablemos
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Hablemos
             </a>
           </li>
         </ul>
@@ -75,40 +77,40 @@
     </div>
   </nav>
 
-  <main>
+  <main id="contenido" tabindex="-1">
     <section id="inicio" class="hero">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Ideas. Codigo. Impacto.</p>
+            <p class="eyebrow">Ideas. Código. Impacto.</p>
             <h1>Vanina<br>Coria</h1>
-            <p class="role">Programadora Full Stack <span class="typing-cursor">|</span></p>
+            <p class="role">Programadora Full Stack <span class="typing-cursor" aria-hidden="true">|</span></p>
             <p class="hero-description">
-              Desarrollo soluciones web que combinan tecnologia, diseno y experiencia de usuario para transformar ideas
-              en productos digitales claros, utiles y memorables.
+              Desarrollo soluciones web que combinan tecnología, diseño y experiencia de usuario para transformar ideas
+              en productos digitales claros, útiles y memorables.
             </p>
 
             <div class="hero-buttons">
               <a href="#proyectos" class="btn-primary-glow">
-                Ver proyectos <i class="fa-solid fa-arrow-right"></i>
+                Ver proyectos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
               <a href="#contacto" class="btn-secondary-glass">
-                Contactame <i class="fa-regular fa-message"></i>
+                Contactame <i class="fa-regular fa-message" aria-hidden="true"></i>
               </a>
             </div>
 
-            <div class="hero-stats" id="stats">
+            <div class="hero-highlights">
               <div>
-                <span class="stat-number" data-target="3" data-prefix="+">0</span>
-                <small>Anos de experiencia</small>
+                <strong class="highlight-label">Full Stack</strong>
+                <small>Desarrollo web</small>
               </div>
               <div>
-                <span class="stat-number" data-target="15" data-prefix="+">0</span>
-                <small>Proyectos realizados</small>
+                <strong class="highlight-label">Responsive</strong>
+                <small>Diseño adaptable</small>
               </div>
               <div>
-                <span class="stat-number" data-target="100" data-suffix="%">0</span>
-                <small>Compromiso</small>
+                <strong class="highlight-label">En crecimiento</strong>
+                <small>Aprendizaje continuo</small>
               </div>
             </div>
           </div>
@@ -126,7 +128,7 @@
               </div>
               <div class="code-card">
                 <p>const ideas =</p>
-                <p><span>[</span>"personas", "codigo", "impacto"<span>]</span>;</p>
+                <p><span>[</span>"personas", "código", "impacto"<span>]</span>;</p>
               </div>
               <div class="identity-note">
                 <span>Good Code</span>
@@ -135,11 +137,11 @@
             </div>
 
             <div class="floating-card floating-card-one">
-              <i class="fa-solid fa-code"></i>
+              <i class="fa-solid fa-code" aria-hidden="true"></i>
               <span>Front + Back</span>
             </div>
             <div class="floating-card floating-card-two">
-              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
               <span>UI con detalle</span>
             </div>
           </div>
@@ -151,8 +153,8 @@
       <div class="container">
         <div class="section-heading">
           <span class="section-dot"></span>
-          <p>Sobre mi</p>
-          <h2>Mas que codigo, me mueven las personas.</h2>
+          <p>Sobre mí</p>
+          <h2>Más que código, me mueven las personas.</h2>
         </div>
 
         <div class="about-layout">
@@ -160,33 +162,38 @@
             <p>
               Soy Vanina Coria, programadora Full Stack. Me gusta crear experiencias digitales que se vean prolijas,
               funcionen bien en cualquier dispositivo y resuelvan necesidades concretas.
+              Sigo en aprendizaje constante, ampliando mis conocimientos y poniéndolos en práctica en cada proyecto.
             </p>
             <p>
-              Mi camino en tecnologia nacio desde el aprendizaje constante, la practica y el acompanamiento de personas
-              que me impulsaron a crecer. Hoy busco construir proyectos con proposito, cercanos y faciles de usar.
+              Mi camino en programación comenzó con mi formación en <strong>CILSA</strong>. Agradezco las
+              oportunidades de aprendizaje y crecimiento que me brindó.
+            </p>
+            <p>
+              También agradezco a <strong>Maximiliano Bauza</strong>, mi orientador vocacional, por su
+              acompañamiento, orientación y motivación durante este proceso.
             </p>
           </div>
 
           <div class="about-points">
             <div>
-              <i class="fa-solid fa-seedling"></i>
+              <i class="fa-solid fa-seedling" aria-hidden="true"></i>
               <strong>Mentalidad de crecimiento</strong>
               <span>Siempre aprendiendo algo nuevo.</span>
             </div>
             <div>
-              <i class="fa-solid fa-people-group"></i>
+              <i class="fa-solid fa-people-group" aria-hidden="true"></i>
               <strong>Trabajo en equipo</strong>
-              <span>La tecnologia mejora cuando escucha.</span>
+              <span>La tecnología mejora cuando escucha.</span>
             </div>
             <div>
-              <i class="fa-solid fa-bullseye"></i>
+              <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
               <strong>Enfoque en soluciones</strong>
               <span>De los problemas a las oportunidades.</span>
             </div>
             <div>
-              <i class="fa-solid fa-heart"></i>
-              <strong>Tecnologia con proposito</strong>
-              <span>Productos mas claros, humanos y utiles.</span>
+              <i class="fa-solid fa-heart" aria-hidden="true"></i>
+              <strong>Tecnología con propósito</strong>
+              <span>Productos más claros, humanos y útiles.</span>
             </div>
           </div>
         </div>
@@ -197,19 +204,35 @@
       <div class="container">
         <div class="section-heading compact">
           <span class="section-dot"></span>
-          <p>Tecnologias</p>
+          <p>Tecnologías</p>
           <h2>Herramientas que uso</h2>
         </div>
 
-        <div class="tech-grid">
-          <div class="tech-badge"><i class="fab fa-html5"></i><span>HTML5</span></div>
-          <div class="tech-badge"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-          <div class="tech-badge"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
-          <div class="tech-badge"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
-          <div class="tech-badge"><i class="fa-solid fa-mobile-screen"></i><span>Responsive</span></div>
-          <div class="tech-badge"><i class="fa-solid fa-database"></i><span>Datos</span></div>
-          <div class="tech-badge"><i class="fab fa-git-alt"></i><span>Git</span></div>
-          <div class="tech-badge"><i class="fa-solid fa-gauge-high"></i><span>Performance</span></div>
+        <div class="tech-group">
+          <h3>Frontend</h3>
+          <div class="tech-grid">
+            <div class="tech-badge"><i class="fab fa-html5" aria-hidden="true"></i><span>HTML5</span></div>
+            <div class="tech-badge"><i class="fab fa-css3-alt" aria-hidden="true"></i><span>CSS3</span></div>
+            <div class="tech-badge"><i class="fab fa-js-square" aria-hidden="true"></i><span>JavaScript</span></div>
+            <div class="tech-badge"><i class="fab fa-react" aria-hidden="true"></i><span>React</span></div>
+            <div class="tech-badge"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Vite</span></div>
+            <div class="tech-badge"><i class="fab fa-bootstrap" aria-hidden="true"></i><span>Bootstrap</span></div>
+          </div>
+        </div>
+        <div class="tech-group">
+          <h3>Bases de datos y servicios</h3>
+          <div class="tech-grid">
+            <div class="tech-badge"><i class="fa-solid fa-fire" aria-hidden="true"></i><span>Firebase</span></div>
+            <div class="tech-badge"><i class="fa-solid fa-database" aria-hidden="true"></i><span>Firestore</span></div>
+          </div>
+        </div>
+        <div class="tech-group">
+          <h3>Herramientas</h3>
+          <div class="tech-grid">
+            <div class="tech-badge"><i class="fab fa-git-alt" aria-hidden="true"></i><span>Git</span></div>
+            <div class="tech-badge"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></div>
+            <div class="tech-badge"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i><span>Vercel</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -224,10 +247,10 @@
           </div>
 
           <div class="portfolio-filters">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
-            <button class="filter-btn" data-filter="corporate">Institucional</button>
-            <button class="filter-btn" data-filter="brand">Marca</button>
+            <button class="filter-btn active" type="button" aria-pressed="true" data-filter="all">Todos</button>
+            <button class="filter-btn" type="button" aria-pressed="false" data-filter="ecommerce">E-commerce</button>
+            <button class="filter-btn" type="button" aria-pressed="false" data-filter="corporate">Institucional</button>
+            <button class="filter-btn" type="button" aria-pressed="false" data-filter="brand">Marca</button>
           </div>
         </div>
 
@@ -235,21 +258,20 @@
           <div class="col-lg-6 project-item" data-category="ecommerce">
             <article class="card-proyecto featured-project">
               <div class="proyecto-img-box">
-                <img src="image/sanbauben.PNG" alt="Sanbauben Minimercado y Delivery">
-                <button class="project-open" data-bs-toggle="modal" data-bs-target="#projectModal"
-                  data-title="Sanbauben Delivery & Minimercado" data-img="image/sanbauben.PNG"
-                  data-desc="Plataforma de delivery y minimercado con catalogo dinamico, filtros por categoria, carrito de compras y envio directo por WhatsApp."
-                  data-tags="HTML5, CSS3, JavaScript, Carrito, WhatsApp">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <img src="image/sanbauben.PNG" alt="Vista del catálogo de Sanbauben, minimercado online">
+                <button class="project-open" type="button" data-bs-toggle="modal" data-bs-target="#projectModal"
+                  data-title="Sanbauben — Minimercado y pedidos" aria-label="Ver detalles de Sanbauben">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 </button>
               </div>
               <div class="proyecto-content">
+
                 <h3>Sanbauben</h3>
-                <p>Delivery, catalogo y experiencia de compra simple para clientes desde celular.</p>
-                <div class="proyecto-tags">
-                  <span class="tag-mini">Delivery</span>
-                  <span class="tag-mini">E-commerce</span>
-                  <span class="tag-mini">Mobile first</span>
+                <p>Aplicación web para consultar productos de un minimercado y armar pedidos desde el celular, reduciendo el intercambio manual de mensajes.</p>
+                <p><strong>Funcionalidades:</strong> Catálogo con categorías y buscador, carrito, confirmación del pedido por WhatsApp, autenticación y administración de productos. Versión PWA y diseño adaptable.</p>
+                <p><strong>Mi participación:</strong> Desarrollo de la aplicación web y su flujo de pedidos.</p>
+                <div class="proyecto-tags" aria-label="Tecnologías del proyecto">
+                  <span class="tag-mini">React</span><span class="tag-mini">Vite</span><span class="tag-mini">JavaScript</span><span class="tag-mini">CSS3</span><span class="tag-mini">Bootstrap</span><span class="tag-mini">Firebase</span><span class="tag-mini">Firestore</span><span class="tag-mini">PWA</span>
                 </div>
               </div>
             </article>
@@ -258,44 +280,42 @@
           <div class="col-lg-6 project-item" data-category="corporate">
             <article class="card-proyecto">
               <div class="proyecto-img-box">
-                <img src="image/la-llave-de-camino.PNG" alt="La Llave de Camino">
-                <button class="project-open" data-bs-toggle="modal" data-bs-target="#projectModal"
-                  data-title="La Llave de Camino" data-img="image/la-llave-de-camino.PNG"
-                  data-desc="Sitio institucional con estructura clara, presentacion de servicios, formulario de consulta y llamadas a la accion."
-                  data-tags="HTML5, CSS3, JavaScript, UI/UX, Bootstrap">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <img src="image/la-llave-de-camino.PNG" alt="Vista del sitio institucional de la ONG La Llave del Camino">
+                <button class="project-open" type="button" data-bs-toggle="modal" data-bs-target="#projectModal"
+                  data-title="La Llave del Camino" aria-label="Ver detalles de La Llave del Camino">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 </button>
               </div>
               <div class="proyecto-content">
-                <h3>La Llave de Camino</h3>
-                <p>Presencia institucional elegante para comunicar servicios y generar contacto.</p>
-                <div class="proyecto-tags">
-                  <span class="tag-mini">Institucional</span>
-                  <span class="tag-mini">UX</span>
-                  <span class="tag-mini">Contacto</span>
+                <p class="project-status">En desarrollo</p>
+                <h3>La Llave del Camino</h3>
+                <p>Sitio institucional de una ONG para dar a conocer su labor, difundir actividades y acercar información a la comunidad.</p>
+                <p><strong>Funcionalidades:</strong> Secciones de proyectos, talleres, actividades y voluntariado; navegación adaptable y control de contraste.</p>
+                <p><strong>Mi participación:</strong> Participación en el equipo de desarrollo del sitio institucional.</p>
+                <div class="proyecto-tags" aria-label="Tecnologías del proyecto">
+                  <span class="tag-mini">HTML5</span><span class="tag-mini">CSS3</span><span class="tag-mini">JavaScript</span><span class="tag-mini">Bootstrap Icons</span>
                 </div>
               </div>
             </article>
           </div>
 
-          <div class="col-lg-6 project-item" data-category="corporate">
+          <div class="col-lg-6 project-item" data-category="ecommerce">
             <article class="card-proyecto">
               <div class="proyecto-img-box">
-                <img src="image/bella-imagen.PNG" alt="Bella Imagen">
-                <button class="project-open" data-bs-toggle="modal" data-bs-target="#projectModal"
-                  data-title="Bella Imagen" data-img="image/bella-imagen.PNG"
-                  data-desc="Sitio web moderno para servicios de belleza y estetica, con galeria visual, contenido claro y contacto directo."
-                  data-tags="HTML5, CSS3, JavaScript, Responsive, WhatsApp">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <img src="image/bella-imagen.PNG" alt="Vista de la tienda online Bella Imagen">
+                <button class="project-open" type="button" data-bs-toggle="modal" data-bs-target="#projectModal"
+                  data-title="Bella Imagen — Tienda online" aria-label="Ver detalles de Bella Imagen">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 </button>
               </div>
               <div class="proyecto-content">
+
                 <h3>Bella Imagen</h3>
-                <p>Diseno limpio para mostrar servicios, confianza y conversion desde WhatsApp.</p>
-                <div class="proyecto-tags">
-                  <span class="tag-mini">Belleza</span>
-                  <span class="tag-mini">Responsive</span>
-                  <span class="tag-mini">WhatsApp</span>
+                <p>Tienda online de productos de belleza y accesorios que reúne el catálogo y la preparación de compras en una misma experiencia.</p>
+                <p><strong>Funcionalidades:</strong> Categorías, detalle de productos, carrito y checkout con opciones de envío y pago. Confirmación por WhatsApp y panel de administración de productos.</p>
+                <p><strong>Mi participación:</strong> Desarrollo de la tienda online y su panel de administración.</p>
+                <div class="proyecto-tags" aria-label="Tecnologías del proyecto">
+                  <span class="tag-mini">React</span><span class="tag-mini">Vite</span><span class="tag-mini">JavaScript</span><span class="tag-mini">CSS3</span><span class="tag-mini">Bootstrap</span><span class="tag-mini">Firebase</span><span class="tag-mini">Firestore</span>
                 </div>
               </div>
             </article>
@@ -304,21 +324,20 @@
           <div class="col-lg-6 project-item" data-category="brand">
             <article class="card-proyecto">
               <div class="proyecto-img-box logo-project">
-                <img src="image/logo-alfha.png" alt="ALFHA Soluciones Digitales">
-                <button class="project-open" data-bs-toggle="modal" data-bs-target="#projectModal"
-                  data-title="ALFHA Soluciones Digitales" data-img="image/logo-alfha.png"
-                  data-desc="Marca propia y sitio de servicios digitales con animaciones, identidad visual y enfoque comercial."
-                  data-tags="Branding, CSS, JavaScript, Animaciones, Responsive">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <img src="image/logo-alfha.png" alt="Logo de ALFHA Soluciones Digitales">
+                <button class="project-open" type="button" data-bs-toggle="modal" data-bs-target="#projectModal"
+                  data-title="ALFHA Soluciones Digitales" aria-label="Ver detalles de ALFHA Soluciones Digitales">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 </button>
               </div>
               <div class="proyecto-content">
+
                 <h3>ALFHA Soluciones Digitales</h3>
-                <p>Identidad digital para presentar servicios web y soluciones a medida.</p>
-                <div class="proyecto-tags">
-                  <span class="tag-mini">Branding</span>
-                  <span class="tag-mini">Animacion</span>
-                  <span class="tag-mini">Web</span>
+                <p>Mi proyecto de identidad y servicios digitales, parte del recorrido que dio origen a este portfolio.</p>
+                <p><strong>Funcionalidades:</strong> Página de presentación, navegación responsive, tarjetas de proyectos con filtros y detalles, animaciones y enlaces de contacto por WhatsApp.</p>
+                <p><strong>Mi participación:</strong> Desarrollo del sitio y evolución de su interfaz hasta el portfolio actual.</p>
+                <div class="proyecto-tags" aria-label="Tecnologías del proyecto">
+                  <span class="tag-mini">HTML5</span><span class="tag-mini">CSS3</span><span class="tag-mini">JavaScript</span><span class="tag-mini">Bootstrap</span>
                 </div>
               </div>
             </article>
@@ -331,30 +350,21 @@
       <div class="container">
         <div class="section-heading compact">
           <span class="section-dot"></span>
-          <p>Formacion</p>
+          <p>Formación</p>
           <h2>Mi camino de aprendizaje</h2>
         </div>
 
         <div class="timeline">
           <div class="timeline-item">
-            <span>2020</span>
-            <h3>Primeros pasos en desarrollo web</h3>
-            <p>HTML, CSS, JavaScript y fundamentos para construir interfaces responsive.</p>
-          </div>
-          <div class="timeline-item">
-            <span>2022</span>
-            <h3>Formacion tecnica y practica</h3>
-            <p>Proyectos reales, trabajo con estructura, diseno visual y experiencia de usuario.</p>
-          </div>
-          <div class="timeline-item">
             <span>2024</span>
-            <h3>Desarrollo Full Stack</h3>
-            <p>Integracion de logica, datos, buenas practicas y soluciones orientadas a negocio.</p>
+            <h3>Programadora Full Stack</h3>
+            <p><strong>CILSA</strong></p>
+            <p>Formación que marcó el comienzo de mi camino en programación.</p>
           </div>
           <div class="timeline-item">
-            <span>Siempre</span>
-            <h3>Aprendizaje continuo</h3>
-            <p>La tecnologia cambia, y yo tambien crezco con cada desafio.</p>
+            <span>Experiencia y práctica</span>
+            <h3>ADER Santa Fe</h3>
+            <p>Práctica relacionada con el desarrollo web y la accesibilidad.</p>
           </div>
         </div>
       </div>
@@ -367,10 +377,10 @@
             <div class="section-heading compact">
               <span class="section-dot"></span>
               <p>Contacto</p>
-              <h2>Hablemos de tu proxima idea.</h2>
+              <h2>¿Creamos algo juntos?</h2>
             </div>
             <p class="contact-copy">
-              Si tenes un proyecto, una idea o simplemente queres conectar, me encantaria escucharte.
+              Si tenés un proyecto, una idea o simplemente querés conectar, me encantaría escucharte.
             </p>
           </div>
 
@@ -378,21 +388,22 @@
             <a class="contact-link"
               href="https://wa.me/543425238984?text=Hola%20Vanina,%20quiero%20consultar%20sobre%20tu%20trabajo."
               target="_blank" rel="noopener">
-              <i class="fab fa-whatsapp"></i>
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
               Escribir por WhatsApp
             </a>
             <div class="email-row">
-              <span>vaninamariselcoria75@gmail.com</span>
-              <button id="copy-email-btn" type="button" aria-label="Copiar email">
-                <i class="fa-regular fa-copy"></i>
+              <a id="contact-email" href="mailto:vaninamariselcoria75@gmail.com">vaninamariselcoria75@gmail.com</a>
+              <button id="copy-email-btn" type="button" aria-label="Copiar correo electrónico">
+                <i class="fa-regular fa-copy" aria-hidden="true"></i>
               </button>
             </div>
+            <p id="copy-email-status" class="copy-status" role="status" aria-live="polite"></p>
             <div class="social-row">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn (sitio general)">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
+              <a href="https://github.com/vaninacoria34" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -404,31 +415,31 @@
   <footer>
     <div class="container footer-inner">
       <p>Vanina Coria - Programadora Full Stack</p>
-      <p>Ideas de hoy. Soluciones para manana.</p>
+      <p>Ideas de hoy. Soluciones para mañana.</p>
     </div>
   </footer>
 
   <button id="back-to-top" aria-label="Volver arriba" title="Volver arriba">
-    <i class="fas fa-arrow-up"></i>
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
 
   <a href="https://wa.me/543425238984?text=Hola%20Vanina,%20quiero%20consultar%20sobre%20tu%20trabajo."
-    class="floating-whatsapp" target="_blank" rel="noopener" title="Contactar por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
+    class="floating-whatsapp" target="_blank" rel="noopener" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
   </a>
 
-  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title font-heading fw-bold" id="modal-title">Detalle del proyecto</h5>
+          <h2 class="modal-title font-heading fw-bold" id="modal-title">Detalle del proyecto</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
           <div class="text-center mb-4">
-            <img id="modal-img" src="" alt="Vista previa del proyecto" class="img-fluid rounded-3">
+            <img id="modal-img" alt="Vista previa del proyecto" class="img-fluid rounded-3">
           </div>
-          <p id="modal-desc"></p>
+          <div id="modal-desc"></div>
           <div id="modal-tags" class="d-flex flex-wrap gap-2"></div>
         </div>
         <div class="modal-footer">
@@ -436,7 +447,7 @@
           <a href="https://wa.me/543425238984?text=Hola%20Vanina,%20me%20interesa%20un%20proyecto%20similar."
             target="_blank" class="btn btn-primary-glow btn-sm" rel="noopener">
             Consultar proyecto
-            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -445,6 +456,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+  <noscript><style>.app-loader { display: none; }</style></noscript>
 </body>
 
 </html>
